@@ -93,9 +93,9 @@ WSGI_APPLICATION = 'api_crud.wsgi.application'
 #    }
 #}
 DATABASES = {
-    'default': dj_database_url.config(        # Feel free to alter this value to suit your needs.        
-    default='sqlite:///db.sqlite3',
-            conn_max_age=600    
+    'default': dj_database_url.config(
+        default='sqlite:///db.sqlite3',
+        conn_max_age=600
     )
 }
 
@@ -134,11 +134,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-if not DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
-    # in your application directory on Render.
+
+if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    # Turn on WhiteNoise storage backend that takes care of compressing static files
-    # and creating unique names for each version so they can safely be cached forever.
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
